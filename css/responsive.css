@@ -1,0 +1,799 @@
+/* Mobile-First Responsive Design */
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .hero-text h1 {
+        font-size: 3.5rem;
+    }
+    
+    .destinations-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+    
+    .tours-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 1199px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    
+    .tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .destinations-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .destinations-grid .destination-card.featured {
+        grid-column: span 2;
+    }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+    /* Navigation */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: var(--shadow-medium);
+        padding: 2rem 0;
+        gap: 1rem;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 100px 0 60px;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Sections */
+    .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .destinations-grid .destination-card.featured {
+        grid-row: span 1;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .feature-item {
+        padding: 1.5rem;
+    }
+    
+    .tours-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .story-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .destination-hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    /* Benefits */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefit-item {
+        padding-left: 2rem;
+    }
+    
+    .benefit-number {
+        left: 1rem;
+    }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (max-width: 767px) {
+    /* Typography */
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Spacing */
+    .hero {
+        padding: 100px 0 50px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .page-header {
+        padding: 120px 0 60px;
+    }
+    
+    /* Stats */
+    .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1.5rem 20px 0;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    /* Features */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    /* Tour Cards */
+    .tour-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .tour-actions {
+        flex-direction: column;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-item img {
+        height: 200px;
+    }
+    
+    /* Contact Form */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    /* Highlights Grid */
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Team Grid */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Achievement Grid */
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Partners Content */
+    .partners-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Sites Grid */
+    .sites-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stories Grid */
+    .stories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Filter Tabs */
+    .filter-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+    }
+    
+    /* CTA Buttons */
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Lightbox */
+    .lightbox-content {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+    
+    #lightboxImage {
+        height: 50vh;
+    }
+    
+    .lightbox-info {
+        padding: 1rem;
+    }
+    
+    .lightbox-nav {
+        padding: 0 10px;
+    }
+    
+    .lightbox-prev,
+    .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile Small (480px to 575px) */
+@media (max-width: 575px) {
+    /* Container */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        padding: 1rem 15px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .nav-logo span {
+        font-size: 0.8rem;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Hero Stats */
+    .hero-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .stat-item h3 {
+        font-size: 1.8rem;
+    }
+    
+    .stat-item p {
+        font-size: 0.9rem;
+    }
+    
+    /* Cards */
+    .destination-card,
+    .tour-card,
+    .feature-item,
+    .site-card {
+        margin: 0 5px;
+    }
+    
+    .card-content,
+    .tour-content,
+    .site-content {
+        padding: 1rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Form */
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Achievement Grid */
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Modal */
+    .modal-content {
+        padding: 2rem 1.5rem;
+        margin: 0 15px;
+    }
+    
+    .success-icon {
+        font-size: 3rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-content p {
+        font-size: 1.1rem;
+    }
+    
+    .quote-icon {
+        font-size: 2.5rem;
+    }
+    
+    /* FAQ */
+    .faq-question {
+        padding: 1rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    
+    .faq-answer {
+        padding: 0 1rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 1rem 1rem;
+    }
+}
+
+/* Mobile Extra Small (below 480px) */
+@media (max-width: 479px) {
+    /* Container */
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        padding: 0.8rem 10px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.3rem;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 90px 0 40px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Sections */
+    section {
+        padding: 50px 0;
+    }
+    
+    .page-header {
+        padding: 110px 0 50px;
+    }
+    
+    /* Stats */
+    .hero-stats {
+        padding: 1rem 10px 0;
+    }
+    
+    .stat-item h3 {
+        font-size: 1.6rem;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Cards */
+    .card-content,
+    .tour-content,
+    .site-content,
+    .feature-item {
+        padding: 0.8rem;
+    }
+    
+    /* Images */
+    .gallery-item img,
+    .destination-card img,
+    .site-card img {
+        height: 180px;
+    }
+    
+    .hero-image img {
+        height: 250px;
+    }
+    
+    /* Icons */
+    .feature-icon,
+    .mv-icon,
+    .method-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .achievement-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .member-photo {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    /* Form */
+    .contact-form {
+        padding: 1rem;
+    }
+    
+    .contact-info-container {
+        padding: 1.5rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    /* Navigation buttons */
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    /* Lightbox */
+    .lightbox-close {
+        top: 10px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+    
+    #lightboxImage {
+        height: 40vh;
+    }
+    
+    .lightbox-prev,
+    .lightbox-next {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 15px;
+    }
+    
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        padding: 120px 0 50px;
+    }
+    
+    .page-header {
+        padding: 140px 0 60px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .hero-image img {
+        height: 250px;
+        max-height: 250px;
+    }
+    
+    #lightboxImage {
+        height: 60vh;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .footer,
+    .hamburger,
+    .nav-btn,
+    .btn,
+    .cta,
+    .contact-form,
+    .lightbox-modal,
+    .modal {
+        display: none !important;
+    }
+    
+    .hero,
+    section {
+        padding: 20px 0;
+    }
+    
+    .page-header {
+        padding: 20px 0;
+        background: none !important;
+        color: var(--dark-text) !important;
+    }
+    
+    .page-header h1,
+    .page-header p {
+        color: var(--dark-text) !important;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .hero-content,
+    .contact-content,
+    .story-content,
+    .destination-hero {
+        grid-template-columns: 1fr;
+    }
+    
+    .destinations-grid,
+    .tours-grid,
+    .features-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-item img,
+    .destination-card img,
+    .tour-card img {
+        height: 150px;
+    }
+    
+    body {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    h1 { font-size: 18px; }
+    h2 { font-size: 16px; }
+    h3 { font-size: 14px; }
+}
+
+/* High DPI / Retina Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .feature-icon,
+    .mv-icon,
+    .achievement-icon,
+    .method-icon,
+    .member-photo {
+        transform: translateZ(0);
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+/* Dark Mode Support (for future implementation) */
+@media (prefers-color-scheme: dark) {
+    /* This can be expanded for dark mode support */
+    .lightbox-modal {
+        background: rgba(0, 0, 0, 0.95);
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .hamburger .bar,
+    .nav-menu,
+    .gallery-item img,
+    .destination-card,
+    .tour-card,
+    .feature-item,
+    .btn,
+    .nav-btn {
+        transition: none;
+    }
+    
+    .gallery-item:hover img {
+        transform: none;
+    }
+    
+    .destination-card:hover,
+    .tour-card:hover,
+    .feature-item:hover,
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .nav-btn,
+    .filter-btn,
+    .tour-actions .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .social-links a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .gallery-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    }
+    
+    .overlay-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+    }
+    
+    .overlay-icons {
+        justify-content: flex-end;
+    }
+}
+
+/* Animation Performance for Mobile */
+@media (max-width: 767px) {
+    * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        perspective: 1000;
+    }
+}
