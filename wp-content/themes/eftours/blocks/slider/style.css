@@ -1,0 +1,264 @@
+/* Reset and base styles */
+.wp-block-image-slider {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Default width */
+.wp-block-image-slider {
+    max-width: 800px;
+}
+
+/* Wide alignment */
+.wp-block-image-slider.alignwide {
+    max-width: 1200px;
+}
+
+/* Full alignment */
+.wp-block-image-slider.alignfull {
+    max-width: none;
+    width: 100%;
+}
+
+/* FIXED: Wide alignment - only break out when no custom margins */
+.wp-block-image-slider.alignwide:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]) {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 1200px;
+    /* FIXED: Prevent horizontal scroll */
+    box-sizing: border-box;
+}
+
+/* FIXED: Full alignment - only break out when no custom margins */
+.wp-block-image-slider.alignfull:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]) {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: none;
+    /* FIXED: Prevent horizontal scroll */
+    box-sizing: border-box;
+}
+
+/* FIXED: Better approach for wide/full width without custom margins */
+@supports (width: 100vw) {
+    .wp-block-image-slider.alignwide:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]) {
+        width: min(100vw, 1200px);
+        margin-left: calc(50% - min(50vw, 600px));
+        margin-right: calc(50% - min(50vw, 600px));
+        left: auto;
+        right: auto;
+        position: relative;
+    }
+    
+    .wp-block-image-slider.alignfull:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]) {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        left: auto;
+        right: auto;
+        position: relative;
+        max-width: none;
+    }
+}
+
+/* FIXED: Ensure no horizontal overflow on body */
+body {
+    overflow-x: hidden;
+}
+
+/* Container - height will be set by JavaScript */
+.slider-container {
+    position: relative;
+    width: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    /* Default fallback height */
+    height: 400px;
+    /* FIXED: Ensure container doesn't cause overflow */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide.previous {
+    transform: translateX(-100%);
+}
+
+/* Images - object-position will be set by JavaScript */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Default fallback */
+    object-position: top;
+    /* FIXED: Prevent image overflow */
+    max-width: 100%;
+}
+
+/* Navigation styles */
+.slider-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.slider-nav button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-prev { left: 10px; }
+.slider-next { right: 10px; }
+
+.wp-block-image-slider.alignwide .slider-nav button,
+.wp-block-image-slider.alignfull .slider-nav button {
+    font-size: 32px;
+    padding: 15px 20px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-dots .dot.active,
+.slider-dots .dot:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.wp-block-image-slider.alignwide .slider-dots .dot,
+.wp-block-image-slider.alignfull .slider-dots .dot {
+    width: 16px;
+    height: 16px;
+}
+
+/* FIXED: Responsive - better mobile handling */
+@media (max-width: 768px) {
+    /* FIXED: Only apply negative margins when no custom margins and ensure no overflow */
+    .wp-block-image-slider.alignwide:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]),
+    .wp-block-image-slider.alignfull:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]) {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        left: auto;
+        right: auto;
+        position: relative;
+        max-width: none;
+    }
+    
+    .slider-nav button { 
+        font-size: 18px !important; 
+        padding: 8px 12px !important; 
+    }
+}
+
+@media (max-width: 480px) {
+    /* FIXED: Same approach for mobile */
+    .wp-block-image-slider.alignwide:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]),
+    .wp-block-image-slider.alignfull:not([style*="margin"]):not([style*="margin-left"]):not([style*="margin-right"]) {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        left: auto;
+        right: auto;
+        position: relative;
+        max-width: none;
+    }
+    
+    .slider-nav button { 
+        font-size: 16px !important; 
+        padding: 6px 10px !important; 
+    }
+    .slider-dots .dot { 
+        width: 10px !important; 
+        height: 10px !important; 
+    }
+}
+
+/* FIXED: Handle custom margins properly */
+.wp-block-image-slider.alignwide[style*="margin"],
+.wp-block-image-slider.alignfull[style*="margin"] {
+    position: static;
+    left: auto;
+    right: auto;
+    transform: none;
+    width: 100%;
+}
+
+.wp-block-image-slider.alignwide[style*="margin"] {
+    max-width: 1200px;
+}
+
+.wp-block-image-slider.alignfull[style*="margin"] {
+    max-width: none;
+}
+
+/* Handle custom background colors */
+.wp-block-image-slider.has-background {
+    background-clip: padding-box;
+}
+
+/* Custom border handling */
+.wp-block-image-slider[style*="border"] .slider-container {
+    border-radius: inherit;
+}
+
+/* FIXED: Prevent any potential overflow issues */
+.wp-block-image-slider * {
+    box-sizing: border-box;
+}
+
+/* FIXED: Ensure the slider never causes horizontal scroll */
+.wp-block-image-slider {
+    min-width: 0; /* Prevent flex/grid issues */
+}
